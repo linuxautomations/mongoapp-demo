@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: mongodbapprc
+spec:
+  replicas: 1
+  selector:
+    app: mongodbapp
+  template:
+    metadata:
+      name: somename
+      labels:
+        app: mongodbapp
+    spec:
+      containers:
+        - name: nginx
+          imagePullPolicy: Always
+          image: linuxautomations/nginx:v2
+          ports:
+            - containerPort: 80
+          
+        - name: mongodb
+          image: mongo:3.6
+          env:
+            - name: MONGO_LOG_DIR
+              value: /dev/null
+          ports:
+            - containerPort: 27017
+          command:
+            - "mongod"
+
+        - name: app
+          imagePullPolicy: Always
+          image: linuxautomations/app:v2
+          ports:
+            - containerPort: 8080
+
