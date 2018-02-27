@@ -5,6 +5,7 @@ metadata:
 spec:
   containers:
   - name: nginx
+    imagePullPolicy: Always
     image: linuxautomations/nginx:v2
     ports:
       - containerPort: 80
@@ -19,6 +20,7 @@ spec:
       - mongod --smallfiles --logpath=/dev/null
 
   - name: app
+    imagePullPolicy: Always
     image: linuxautomations/app:v2
     ports:
       - containerPort: 8080
