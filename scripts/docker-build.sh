@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$1" != "-v" -o "$1" != "--version" ]; then 
+if [ "$1" != "-v" ]; then 
 	echo "Execute script as $0 -v version or $0 --version version of docker image"
 	exit 1
 fi
