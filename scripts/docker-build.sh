@@ -12,4 +12,4 @@ docker push  linuxautomations/app:$VERSION
 
 cd ../nginx
 docker build -t linuxautomations/nginx:$VERSION .
-docker push linuxautomations/app:$VERSION
+docker push linuxautomations/nginx:$VERSION
