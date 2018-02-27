@@ -17,8 +17,7 @@ spec:
         value: /dev/null
     ports:
       - containerPort: 27017
-    command:
-      - mongod --smallfiles 
+
 
   - name: app
     imagePullPolicy: Always
